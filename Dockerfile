@@ -1,6 +1,7 @@
 FROM ubuntu:14.04
 
 ADD sources.list /etc/apt/sources.list
+ADD pip.conf ~/.pip/pip.conf
 
 # Update OS
 # RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list
@@ -10,7 +11,6 @@ RUN apt-get -y upgrade
 # Install Python
 RUN apt-get install -y python-dev python-pip
 
-ADD pip.conf ~/.pip/pip.conf
 # Add requirements.txt
 ADD requirements.txt /webapp/requirements.txt
 
